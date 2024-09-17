@@ -13,10 +13,10 @@
 
         <div class="my-10 text-center">
             <h5 class="mb-2 text-3xl font-bold tracking-tight text-gray-900">
-                Noteworthy technology acquisitions 2021
+                {{ $questionnaire->title }}
             </h5>
             <p class="font-normal text-gray-700">
-                Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.
+                {{ $questionnaire->description }}
             </p>
         </div>
 
@@ -25,7 +25,7 @@
                 Questions:
             </h5>
             <div class="flex items-center">
-                <a type="button" class="flex items-center py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-full border border-gray-200 hover:bg-gray-100 hover:text-purple-700 focus:z-10 focus:ring-4 focus:ring-gray-100">
+                <a href="{{ route('questionnaires.questions.index', $questionnaire) }}" type="button" class="flex items-center py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-full border border-gray-200 hover:bg-gray-100 hover:text-purple-700 focus:z-10 focus:ring-4 focus:ring-gray-100">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6 mr-2">
                         <path d="M21.731 2.269a2.625 2.625 0 0 0-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 0 0 0-3.712ZM19.513 8.199l-3.712-3.712-12.15 12.15a5.25 5.25 0 0 0-1.32 2.214l-.8 2.685a.75.75 0 0 0 .933.933l2.685-.8a5.25 5.25 0 0 0 2.214-1.32L19.513 8.2Z" />
                     </svg>

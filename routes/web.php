@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AnswerController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\InquiryController;
 use App\Http\Controllers\QuestionnaireController;
@@ -86,11 +87,19 @@ Route::middleware(['auth'])->group(function () {
     Route::get('questionnaires/{questionnaire}/edit', [QuestionnaireController::class, 'edit'])->name('questionnaires.edit');
     Route::put('questionnaires/{questionnaire}', [QuestionnaireController::class, 'update'])->name('questionnaires.update');
 
+    Route::get('questionnaires/{questionnaire}/questions', [QuestionController::class, 'index'])->name('questionnaires.questions.index');
     Route::get('questionnaires/{questionnaire}/questions/create', [QuestionController::class, 'create'])->name('questionnaires.questions.create');
     Route::get('questions/{question}', [QuestionController::class, 'show'])->name('questions.show');
     Route::post('questionnaires/{questionnaire}/questions', [QuestionController::class, 'store'])->name('questionnaires.questions.store');
     Route::get('questions/{question}/edit', [QuestionController::class, 'edit'])->name('questions.edit');
     Route::put('questions/{question}', [QuestionController::class, 'update'])->name('questions.update');
+
+    Route::get('questionnaires/{questionnaire}/answers', [AnswerController::class, 'index'])->name('questionnaires.answers.index');
+    Route::get('questionnaires/{questionnaire}/answers/create', [AnswerController::class, 'create'])->name('questionnaires.answers.create');
+    Route::get('questions/{answer}', [AnswerController::class, 'show'])->name('questions.show');
+    Route::post('questionnaires/{questionnaire}/answers', [AnswerController::class, 'store'])->name('questionnaires.answers.store');
+    Route::get('questions/{answer}/edit', [AnswerController::class, 'edit'])->name('answers.edit');
+    Route::put('questions/{answer}', [AnswerController::class, 'update'])->name('answers.update');
 
     Route::get('inquiries', [InquiryController::class, 'index'])->name('inquiries.index');
     Route::get('inquiries/{inquiry}', [InquiryController::class, 'show'])->name('inquiries.show');

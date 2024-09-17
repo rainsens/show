@@ -9,9 +9,12 @@ use App\Models\Questionnaire;
 
 class QuestionController extends Controller
 {
-    public function index()
+    public function index(Questionnaire $questionnaire)
     {
-        //
+        $user = auth()->user();
+        $questions = $questionnaire->questions;
+        $answers = $user->answers()->where('questionnaire_id', $questionnaire->id)->get();
+        return view('questions.index', compact('questions', 'questionnaire', 'answers'));
     }
 
     public function create(Questionnaire $questionnaire)
@@ -31,7 +34,7 @@ class QuestionController extends Controller
 
     public function show(Question $question)
     {
-        //
+
     }
 
     public function edit(Question $question)
