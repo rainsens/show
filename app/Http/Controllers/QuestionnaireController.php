@@ -36,7 +36,7 @@ class QuestionnaireController extends Controller
 
     public function show(Questionnaire $questionnaire)
     {
-        $questions = $questionnaire->questions()->orderByDesc('id')->get();
+        $questions = $questionnaire->questions()->get();
         return view('questionnaires.show', compact('questionnaire', 'questions'));
     }
 

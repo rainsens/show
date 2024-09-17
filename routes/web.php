@@ -94,7 +94,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('questions/{question}/edit', [QuestionController::class, 'edit'])->name('questions.edit');
     Route::put('questions/{question}', [QuestionController::class, 'update'])->name('questions.update');
 
-    Route::get('questionnaires/{questionnaire}/answers', [AnswerController::class, 'index'])->name('questionnaires.answers.index');
+    Route::get('questionnaires/{questionnaire}/participants', [AnswerController::class, 'participant'])->name('questionnaires.answers.participant');
+    Route::get('questionnaires/{questionnaire}/users/{user}/answers', [AnswerController::class, 'index'])->name('questionnaires.answers.index');
     Route::get('questionnaires/{questionnaire}/answers/create', [AnswerController::class, 'create'])->name('questionnaires.answers.create');
     Route::get('questions/{answer}', [AnswerController::class, 'show'])->name('questions.show');
     Route::post('questionnaires/{questionnaire}/answers', [AnswerController::class, 'store'])->name('questionnaires.answers.store');

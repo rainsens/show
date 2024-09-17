@@ -8,20 +8,22 @@
             Go Back
         </a>
 
-        <hr class="mb-10">
+        <hr>
 
-        <img src="{{ Str::startsWith($questionnaire->cover, 'http') ? $questionnaire->cover : asset($questionnaire->cover) }}" alt="" class="w-1/2 rounded-lg mx-auto">
+        <div class="flex items-center px-10">
+            <img src="{{ Str::startsWith($questionnaire->cover, 'http') ? $questionnaire->cover : asset($questionnaire->cover) }}" alt="" class="w-40 rounded-lg mr-5">
 
-        <div class="my-10 text-center">
-            <h5 class="mb-2 text-3xl font-bold tracking-tight text-gray-900">
-                Noteworthy technology acquisitions 2021
-            </h5>
-            <p class="font-normal text-gray-700">
-                Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.
-            </p>
+            <div class="my-10">
+                <h5 class="mb-2 text-3xl font-bold tracking-tight text-gray-900">
+                    Questionnaire: {{ $questionnaire->title }}
+                </h5>
+                <p class="font-normal text-gray-700">
+                    {{ $questionnaire->description }}
+                </p>
+            </div>
         </div>
 
-        <hr class="mt-10">
+        <hr>
 
         @if($answers->isEmpty())
             <div class="p-6 w-full sm:p-8 lg:p-10">

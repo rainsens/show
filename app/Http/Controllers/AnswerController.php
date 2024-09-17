@@ -6,12 +6,25 @@ use App\Http\Requests\StoreAnswerRequest;
 use App\Http\Requests\UpdateAnswerRequest;
 use App\Models\Answer;
 use App\Models\Questionnaire;
+use App\Models\User;
+use Illuminate\Support\Facades\DB;
 
 class AnswerController extends Controller
 {
-    public function index()
+    public function participant(Questionnaire $questionnaire)
     {
-        //
+        $participants = $questionnaire->answers()
+            ->select('user_id', DB::raw('COUNT(*) as count'))
+            ->groupBy('user_id')
+            ->with('user')
+            ->paginate();
+        return view('answers.participant', compact('questionnaire', 'participants'));
+    }
+
+    public function index(Questionnaire $questionnaire, User $user)
+    {
+        $answers = $questionnaire->answers()->where('user_id', $user->id)->get();
+        return view('answers.index', compact('questionnaire', 'user', 'answers'));
     }
 
     public function create()
