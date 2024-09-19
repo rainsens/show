@@ -6,7 +6,7 @@
 
         <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
             @foreach($projects as $project)
-                <div class="max-w-sm bg-white p-2 rounded-lg shadow">
+                <div class="max-w-sm bg-gray-100 p-2 rounded-lg shadow hover:bg-white">
                     <a href="#">
                         <img class="rounded-t-lg" src="{{ Str::startsWith($project->cover, 'http') ? $project->cover : asset($project->cover) }}" alt="" />
                     </a>
