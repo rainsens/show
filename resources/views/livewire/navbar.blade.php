@@ -25,7 +25,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-purple-700 md:p-0">
+                        <a href="{{ route('inquiries.index') }}" class="block py-2 px-3 text-gray-900 rounded @if(Str::contains(Route::currentRouteName(), 'inquiries')) md:text-purple-700 @endif hover:bg-gray-100 md:hover:bg-transparent md:hover:text-purple-700 md:p-0">
                             FAQs
                         </a>
                     </li>

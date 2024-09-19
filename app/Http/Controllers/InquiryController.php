@@ -8,57 +8,45 @@ use App\Models\Inquiry;
 
 class InquiryController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
+        $inquiries = Inquiry::orderByDesc('id')->paginate();
+        return view('inquiries.index', compact('inquiries'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+        return view('inquiries.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(StoreInquiryRequest $request)
     {
-        //
+        $request->user()->inquiries()->create([
+            'question' => $request->question,
+        ]);
+        session()->flash('success', 'Question created successfully.');
+        return redirect(route('inquiries.index'));
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(Inquiry $inquiry)
     {
-        //
+        return view('inquiries.show', compact('inquiry'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(Inquiry $inquiry)
     {
-        //
+        return view('inquiries.edit', compact('inquiry'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(UpdateInquiryRequest $request, Inquiry $inquiry)
     {
-        //
+        $inquiry->update([
+            'answer' => $request->answer,
+        ]);
+        session()->flash('success', 'Question answered successfully.');
+        return redirect(route('inquiries.index'));
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Inquiry $inquiry)
     {
         //

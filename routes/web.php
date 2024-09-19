@@ -103,9 +103,11 @@ Route::middleware(['auth'])->group(function () {
     Route::put('questions/{answer}', [AnswerController::class, 'update'])->name('answers.update');
 
     Route::get('inquiries', [InquiryController::class, 'index'])->name('inquiries.index');
-    Route::get('inquiries/{inquiry}', [InquiryController::class, 'show'])->name('inquiries.show');
     Route::get('inquiries/create', [InquiryController::class, 'create'])->name('inquiries.create');
+    Route::get('inquiries/{inquiry}', [InquiryController::class, 'show'])->name('inquiries.show');
     Route::post('inquiries', [InquiryController::class, 'store'])->name('inquiries.store');
+    Route::get('inquiries/{inquiry}/edit', [InquiryController::class, 'edit'])->name('inquiries.edit');
+    Route::put('inquiries/{inquiry}', [InquiryController::class, 'update'])->name('inquiries.update');
 });
 Route::get('projects', [ProjectController::class, 'index'])->name('projects.index');
 Route::get('projects/{project}', [ProjectController::class, 'show'])->name('projects.show');

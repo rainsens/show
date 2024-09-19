@@ -3,7 +3,7 @@
         <h1 class="mt-5 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
             Check Latest&nbsp;Projects
         </h1>
-        <p class="mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 lg:px-48 dark:text-gray-200">
+        <p class="mb-8 text-lg font-normal text-gray-600 lg:text-xl sm:px-16 lg:px-48 dark:text-gray-200">
             Explore the most creative research projects in universities and find partners with similar interests to build an ever-improving project showcase platform.
         </p>
         <form class="w-full max-w-md mx-auto">

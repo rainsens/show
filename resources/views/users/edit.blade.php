@@ -36,7 +36,7 @@
                 <label class="block mb-2 text-sm font-medium text-gray-900" for="avatar">
                     Avatar
                 </label>
-                <img src="{{ Str::startsWith($user->avatar, 'http') ?: asset($user->avatar) }}" class="w-28 h-28 rounded-full mb-2">
+                <img src="{{ Str::startsWith($user->avatar, 'http') ? $user->avatar : asset($user->avatar) }}" class="w-28 h-28 rounded-full mb-2">
                 <input id="avatar" name="avatar" type="file"
                        class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg
                        cursor-pointer bg-gray-50 focus:outline-none" />

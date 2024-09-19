@@ -13,14 +13,11 @@ class DatabaseSeeder extends Seeder
 
     protected function seeders(): array
     {
-        if (app()->isLocal()) {
-            return [
-                UserSeeder::class,
-                ProjectSeeder::class,
-                QuestionnaireSeeder::class,
-            ];
-        }
-
-        return [];
+        return [
+            UserSeeder::class,
+            ProjectSeeder::class,
+            QuestionnaireSeeder::class,
+            InquirySeeder::class,
+        ];
     }
 }
