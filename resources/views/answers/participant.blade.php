@@ -8,11 +8,11 @@
             Go Back
         </a>
 
-        <hr class="mb-10">
+        <div class="bg-purple-700 text-white text-5xl p-10 text-center">
+            Questionnaire Participants
+        </div>
 
-        <img src="{{ Str::startsWith($questionnaire->cover, 'http') ? $questionnaire->cover : asset($questionnaire->cover) }}" alt="" class="w-1/2 rounded-lg mx-auto">
-
-        <div class="my-10 text-center">
+        <div class="my-10">
             <h5 class="mb-2 text-3xl font-bold tracking-tight text-gray-900">
                 {{ $questionnaire->title }}
             </h5>
