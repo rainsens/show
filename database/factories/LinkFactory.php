@@ -14,7 +14,7 @@ class LinkFactory extends Factory
     {
         return [
             'title' => $this->faker->sentence(),
-            'link' => $this->faker->url(),
+            'link' => 'https://github.com',
         ];
     }
 }

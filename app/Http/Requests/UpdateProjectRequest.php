@@ -20,7 +20,7 @@ class UpdateProjectRequest extends FormRequest
             'brief' => ['required', 'string', 'between:2,200'],
             'detail' => ['required', 'string', 'between:2,500'],
             'progress' => ['required', 'numeric', 'between:0,100'],
-            'team' => ['required', 'boolean'],
+            'team' => ['boolean'],
             'team_name' => ['required_if:team,1', 'string', 'between:2,200'],
         ];
     }

@@ -12,7 +12,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id')->default(0)->index();
             $table->string('question');
-            $table->string('answer')->nullable(); // Answered by admin user.
+            $table->text('answer')->nullable(); // Answered by admin user.
             $table->timestamps();
         });
     }

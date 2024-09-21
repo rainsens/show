@@ -21,10 +21,13 @@ class UpdateUserRequest extends FormRequest
             'avatar' => ['nullable', 'image', 'mimes:jpg,jpeg,png,gif', 'max:2048'],
             'title' => ['required', 'min:6', 'max:255'],
             'address' => ['required', 'min:6', 'max:255'],
-            'social' => ['required', 'array'],
-            'social.*' => ['required', 'min:6', 'max:10'],
-            'interest' => ['required', 'min:6', 'max:300'],
-            'credit' => ['required'],
+            'intro' => ['required', 'min:6', 'max:500'],
+            'github' => ['nullable', 'url', 'max:255'],
+            'linkedin' => ['nullable', 'url', 'max:255'],
+            'facebook' => ['nullable', 'url', 'max:255'],
+            'twitter' => ['nullable', 'url', 'max:255'],
+            'interest' => ['nullable', 'min:6', 'max:300'],
+            'credit' => ['nullable', 'string'],
         ];
     }
 }

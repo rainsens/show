@@ -25,7 +25,11 @@ class UserController extends Controller
             'email' => $request->email,
             'title' => $request->title,
             'address' => $request->address,
-            'social' => $request->social,
+            'intro' => $request->intro,
+            'github' => $request->github,
+            'linkedin' => $request->linkedin,
+            'facebook' => $request->facebook,
+            'twitter' => $request->twitter,
             'interest' => $request->interest,
             'credit' => $request->credit,
         ];

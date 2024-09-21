@@ -69,22 +69,62 @@
                 @enderror
             </div>
             <div class="mb-6">
-                <label for="social" class="block mb-2 text-sm font-medium text-gray-900">
-                    Select your social media
+                <label for="intro" class="block mb-2 text-sm font-medium text-gray-900">
+                    Introduction
                 </label>
-                <select multiple id="social" name="social[]"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg
-                        focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
-                    <option value="Facebook" @if(Arr::exists(array_flip($user->social), 'Facebook')) selected @endif>Facebook</option>
-                    <option value="WhatsApp" @if(Arr::exists(array_flip($user->social), 'WhatsApp')) selected @endif>WhatsApp</option>
-                    <option value="YouTube" @if(Arr::exists(array_flip($user->social), 'YouTube')) selected @endif>YouTube</option>
-                    <option value="Instagram" @if(Arr::exists(array_flip($user->social), 'Instagram')) selected @endif>Instagram</option>
-                    <option value="WeChat" @if(Arr::exists(array_flip($user->social), 'WeChat')) selected @endif>WeChat</option>
-                </select>
-                @error('social')
+                <textarea id="intro" rows="10" name="intro"
+                          class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg
+                          border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
+                          placeholder="Write your introduction here...">{{ $user->interest }}</textarea>
+                @error('intro')
                 <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
                 @enderror
-                @error('social.*')
+            </div>
+            <div class="mb-6">
+                <label for="github" class="block mb-2 text-sm font-medium text-gray-900">
+                    Github
+                </label>
+                <input type="text" id="github" name="github"
+                       class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg
+                       focus:ring-purple-500 focus:border-purple-500 block w-full p-2.5"
+                       placeholder="Github" value="{{ $user->github }}" />
+                @error('github')
+                <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                @enderror
+            </div>
+            <div class="mb-6">
+                <label for="linkedin" class="block mb-2 text-sm font-medium text-gray-900">
+                    Linkedin
+                </label>
+                <input type="text" id="linkedin" name="linkedin"
+                       class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg
+                       focus:ring-purple-500 focus:border-purple-500 block w-full p-2.5"
+                       placeholder="Linkedin" value="{{ $user->linkedin }}" />
+                @error('linkedin')
+                <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                @enderror
+            </div>
+            <div class="mb-6">
+                <label for="facebook" class="block mb-2 text-sm font-medium text-gray-900">
+                    Facebook
+                </label>
+                <input type="text" id="facebook" name="facebook"
+                       class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg
+                       focus:ring-purple-500 focus:border-purple-500 block w-full p-2.5"
+                       placeholder="Facebook" value="{{ $user->facebook }}" />
+                @error('facebook')
+                <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                @enderror
+            </div>
+            <div class="mb-6">
+                <label for="twitter" class="block mb-2 text-sm font-medium text-gray-900">
+                    Twitter
+                </label>
+                <input type="text" id="twitter" name="twitter"
+                       class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg
+                       focus:ring-purple-500 focus:border-purple-500 block w-full p-2.5"
+                       placeholder="Twitter" value="{{ $user->twitter }}" />
+                @error('twitter')
                 <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
                 @enderror
             </div>
@@ -104,7 +144,7 @@
                 <label for="interest" class="block mb-2 text-sm font-medium text-gray-900">
                     Credit(one line per credit)
                 </label>
-                <textarea id="interest" rows="4" name="credit"
+                <textarea id="interest" rows="6" name="credit"
                           class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg
                           border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
                           placeholder="Write your interests here...">{{ $user->credit }}</textarea>

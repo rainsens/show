@@ -17,7 +17,11 @@ return new class extends Migration
             $table->string('avatar')->nullable();
             $table->string('title')->nullable();
             $table->string('address')->nullable();
-            $table->text('social')->nullable();
+            $table->text('intro')->nullable();
+            $table->string('github')->nullable();
+            $table->string('linkedin')->nullable();
+            $table->string('facebook')->nullable();
+            $table->string('twitter')->nullable();
             $table->text('interest')->nullable();
             $table->text('credit')->nullable();
             $table->boolean('is_admin')->default(false);
