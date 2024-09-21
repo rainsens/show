@@ -6,6 +6,7 @@ use App\Http\Requests\StoreQuestionnaireRequest;
 use App\Http\Requests\UpdateQuestionnaireRequest;
 use App\Models\Questionnaire;
 use Illuminate\Support\Facades\Storage;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class QuestionnaireController extends Controller
 {
@@ -36,8 +37,9 @@ class QuestionnaireController extends Controller
 
     public function show(Questionnaire $questionnaire)
     {
+        $qrcode = QrCode::size(140)->format('svg')->generate(route('questionnaires.show', $questionnaire));
         $questions = $questionnaire->questions()->get();
-        return view('questionnaires.show', compact('questionnaire', 'questions'));
+        return view('questionnaires.show', compact('qrcode', 'questionnaire', 'questions'));
     }
 
     public function edit(Questionnaire $questionnaire)

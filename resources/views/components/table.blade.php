@@ -66,7 +66,7 @@
                     </div>
                     <div class="ps-3">
                         <div class="text-base font-semibold">
-                            <a href="{{ route('projects.show', $project->id) }}" title="{{ $project->title }}">
+                            <a href="{{ route('projects.show', $project->id) }}" title="{{ $project->title }}" class="hover:text-purple-700">
                                 {{ Str::limit($project->title, 20) }}
                             </a>
                         </div>

@@ -19,7 +19,10 @@
 
         <hr class="mb-10">
 
-        <img src="{{ Str::startsWith($questionnaire->cover, 'http') ? $questionnaire->cover : asset($questionnaire->cover) }}" alt="" class="w-1/2 rounded-lg mx-auto">
+        <div class="relative">
+            <img src="{{ Str::startsWith($questionnaire->cover, 'http') ? $questionnaire->cover : asset($questionnaire->cover) }}" alt="" class="w-1/2 rounded-lg mx-auto">
+            <div class="absolute top-0 left-0">{{ $qrcode }}</div>
+        </div>
 
         <div class="my-10 text-center">
             <h5 class="mb-2 text-3xl font-bold tracking-tight text-gray-900">

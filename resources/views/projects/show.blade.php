@@ -10,18 +10,12 @@
                     </svg>
                     <a href="{{ route('projects.mine') }}" class="ms-2 hover:text-purple-700">My Projects</a>
                 </div>
-                <hr class="my-4">
-                <div class="mb-4">
-                    @if($project->cover)
-                        <img class="rounded-md"
-                             src="{{ Str::startsWith($project->cover, 'http') ? $project->cover : asset($project->cover) }}"
-                             alt="{{ $project->title }}">
-                    @else
-                        <img class="rounded-md" src="{{ asset('img.png') }}" alt="{{ $project->title }}">
-                    @endif
-                    <div class="mt-2 font-bold">Initiator:</div>
-                    <div>{{ $project->initiator }}</div>
+                <div class="my-4">
+                    {{ $qrcode }}
                 </div>
+                <hr class="my-4">
+                <div class="mt-2 font-bold">Initiator:</div>
+                <div>{{ $project->initiator }}</div>
                 @if($project->is_team)
                     <hr class="my-4">
                     <div>
