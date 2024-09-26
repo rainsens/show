@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\NoticeController;
+use App\Http\Controllers\ShareController;
 use App\Http\Controllers\AnswerController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\InquiryController;
@@ -108,6 +110,12 @@ Route::middleware(['auth'])->group(function () {
     Route::post('inquiries', [InquiryController::class, 'store'])->name('inquiries.store');
     Route::get('inquiries/{inquiry}/edit', [InquiryController::class, 'edit'])->name('inquiries.edit');
     Route::put('inquiries/{inquiry}', [InquiryController::class, 'update'])->name('inquiries.update');
+
+    Route::get('shares/{project}/create', [ShareController::class, 'create'])->name('shares.create');
+    Route::post('shares/{project}', [ShareController::class, 'send'])->name('shares.send');
+
+    Route::get('notices/{project}/create', [NoticeController::class, 'create'])->name('notices.create');
+    Route::post('notices/{project}/send', [NoticeController::class, 'send'])->name('notices.send');
 });
 Route::get('projects', [ProjectController::class, 'index'])->name('projects.index');
 Route::get('projects/{project}', [ProjectController::class, 'show'])->name('projects.show');

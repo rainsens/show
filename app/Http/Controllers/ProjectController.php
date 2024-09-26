@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\MemberAddedToProjectMail;
+use App\Mail\ProjectUpdatedMail;
 use App\Models\Project;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
@@ -71,7 +74,11 @@ class ProjectController extends Controller
             $cover = Storage::disk('public')->putFile('upload', $file);
             $data['cover'] = $cover;
         }
+
         $project->update($data);
+
+        Mail::to(config('mail.test_email'))->send(new ProjectUpdatedMail($project));
+
         session()->flash('success', 'Project updated successfully.');
         return redirect(route('projects.show', $project));
     }

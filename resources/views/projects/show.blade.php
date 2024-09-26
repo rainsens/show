@@ -38,6 +38,10 @@
                 </div>
                 <hr class="my-4">
                 <div>
+                    @include('projects._tools')
+                </div>
+                <hr class="my-4">
+                <div>
                     @include('projects._operation')
                 </div>
             </div>
@@ -70,7 +74,7 @@
                         <div class="font-bold mb-2">Project Images:</div>
                         <div>
                             @foreach($project->images as $image)
-                                <img src="{{ Str::startsWith($image->image, 'http') ? $image->image : asset($image->image) }}" class="mt-2 rounded-xl">
+                                <img src="{{ Str::startsWith($image->image, 'http') ? $image->image : asset($image->image) }}" class="mt-2 rounded-xl" alt="">
                             @endforeach
                         </div>
                     </div>

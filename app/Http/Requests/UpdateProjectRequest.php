@@ -18,7 +18,7 @@ class UpdateProjectRequest extends FormRequest
             'cover' => ['nullable', 'image', 'mimes:jpg,jpeg,png,gif', 'max:2048'],
             'title' => ['required', 'string', 'between:2,200'],
             'brief' => ['required', 'string', 'between:2,200'],
-            'detail' => ['required', 'string', 'between:2,500'],
+            'detail' => ['required', 'string', 'between:2,1000'],
             'progress' => ['required', 'numeric', 'between:0,100'],
             'team' => ['boolean'],
             'team_name' => ['required_if:team,1', 'string', 'between:2,200'],

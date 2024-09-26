@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreMemberRequest;
+use App\Mail\MemberAddedToProjectMail;
 use App\Models\Member;
 use App\Models\Project;
 use App\Models\User;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Validation\ValidationException;
 
 class MemberController extends Controller
@@ -28,9 +30,13 @@ class MemberController extends Controller
         if ($user->id === $request->user()->id) {
             throw ValidationException::withMessages(['email' => 'Cannot add yourself as a member again.']);
         }
+
         $project->members()->create([
             'user_id' => $user->id,
         ]);
+
+        Mail::to(config('mail.test_email'))->send(new MemberAddedToProjectMail($project));
+
         session()->flash('success', 'The project team member created successfully.');
         return redirect(route('projects.members.index', $project));
     }
