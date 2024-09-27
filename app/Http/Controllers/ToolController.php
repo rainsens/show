@@ -4,63 +4,53 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreToolRequest;
 use App\Http\Requests\UpdateToolRequest;
+use App\Models\Project;
 use App\Models\Tool;
+use Illuminate\Support\Facades\Gate;
 
 class ToolController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    public function index(Project $project)
     {
-        //
+        $tools = $project->tools()->paginate();
+        return view('tools.index', compact('tools', 'project'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function create(Project $project)
     {
-        //
+        return view('tools.create', compact('project'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(StoreToolRequest $request)
+    public function store(StoreToolRequest $request, Project $project)
     {
-        //
+        $project->tools()->create([
+            'title' => $request->title,
+            'link' => $request->link,
+        ]);
+        session()->flash('success', 'The project collaborating tool created successfully.');
+        return redirect(route('projects.tools.index', $project));
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Tool $tool)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(Tool $tool)
     {
-        //
+        return view('tools.edit', compact('tool'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(UpdateToolRequest $request, Tool $tool)
     {
-        //
+        $tool->update([
+            'title' => $request->title,
+            'link' => $request->link,
+        ]);
+        session()->flash('success', 'The project collaborating tool updated successfully.');
+        return redirect(route('projects.tools.index', $tool->project_id));
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Tool $tool)
     {
-        //
+        Gate::authorize('delete', $tool);
+        $tool->delete();
+        session()->flash('success', 'The project collaborating tool deleted successfully.');
+        return redirect()->route('projects.tools.index', $tool->project_id);
     }
 }

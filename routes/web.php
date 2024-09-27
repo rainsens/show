@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ToolController;
 use App\Http\Controllers\NoticeController;
 use App\Http\Controllers\ShareController;
 use App\Http\Controllers\AnswerController;
@@ -82,6 +83,13 @@ Route::middleware(['auth'])->group(function () {
 
     Route::post('projects/{project}/comments', [CommentController::class, 'store'])->name('projects.comments.store');
     Route::delete('comments/{comment}', [CommentController::class, 'destroy'])->name('comments.destroy');
+
+    Route::get('projects/{project}/tools', [ToolController::class, 'index'])->name('projects.tools.index');
+    Route::get('projects/{project}/tools/create', [ToolController::class, 'create'])->name('projects.tools.create');
+    Route::post('projects/{project}/tools', [ToolController::class, 'store'])->name('projects.tools.store');
+    Route::get('tools/{tool}/edit', [ToolController::class, 'edit'])->name('tools.edit');
+    Route::put('tools/{tool}', [ToolController::class, 'update'])->name('tools.update');
+    Route::delete('tools/{tool}', [ToolController::class, 'destroy'])->name('tools.destroy');
 
     Route::get('questionnaires/create', [QuestionnaireController::class, 'create'])->name('questionnaires.create');
     Route::get('questionnaires/{questionnaire}', [QuestionnaireController::class, 'show'])->name('questionnaires.show');

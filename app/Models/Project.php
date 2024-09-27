@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
- * 
+ *
  *
  * @property int $id
  * @property int $user_id
@@ -121,5 +121,10 @@ class Project extends Model
     public function comments(): HasMany
     {
         return $this->hasMany(Comment::class)->orderBy('created_at', 'desc');
+    }
+
+    public function tools(): HasMany
+    {
+        return $this->hasMany(Tool::class);
     }
 }

@@ -32,7 +32,16 @@ class ProjectSeeder extends Seeder
             $project->links()->saveMany(Link::factory()->count(5)->make());
             $project->materials()->saveMany(Material::factory()->count(5)->make());
             $project->comments()->saveMany(Comment::factory()->count(5)->make());
-            //$project->permits()->saveMany(Permit::factory()->count(5)->make());
+
+            $project->tools()->insert([
+                    ['project_id' => $project->id, 'title' => 'Discord', 'link' => 'https://discord.com'],
+                    ['project_id' => $project->id, 'title' => 'Github', 'link' => 'https://github.com'],
+                    ['project_id' => $project->id, 'title' => 'Miro', 'link' => 'https://miro.com'],
+                    ['project_id' => $project->id, 'title' => 'Stackoverflow', 'link' => 'https://stackoverflow.com'],
+                    ['project_id' => $project->id, 'title' => 'Google Docs', 'link' => 'https://docs.google.com/document/u/0'],
+                    ['project_id' => $project->id, 'title' => 'Google Sheets', 'link' => 'https://docs.google.com/spreadsheets/u/0'],
+                    ['project_id' => $project->id, 'title' => 'Google Slides', 'link' => 'https://docs.google.com/presentation/u/0'],
+            ]);
         });
     }
 }
