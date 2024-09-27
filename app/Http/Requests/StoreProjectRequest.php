@@ -22,6 +22,7 @@ class StoreProjectRequest extends FormRequest
             'progress' => ['required', 'numeric', 'between:0,100'],
             'team' => ['boolean'],
             'team_name' => ['required', 'string', 'between:2,200'],
+            'private' => ['boolean'],
         ];
     }
 }

@@ -65,6 +65,7 @@ class Project extends Model
 
     protected $casts = [
         'is_team' => 'boolean',
+        'is_private' => 'boolean',
     ];
 
     protected $with = [
@@ -77,6 +78,17 @@ class Project extends Model
         'permits',
         'comments',
     ];
+
+    public function isMember(User $user)
+    {
+        $exists = $this->members()->where('user_id', $user->id)->exists();
+        return $user->id === 1 ? true : $exists;
+    }
+
+    public function isNotMember(User $user)
+    {
+        return !$this->isMember($user);
+    }
 
     public function user(): BelongsTo
     {

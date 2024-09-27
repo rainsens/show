@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Mail\MemberAddedToProjectMail;
-use App\Mail\ProjectUpdatedMail;
 use App\Models\Project;
+use App\Mail\ProjectUpdatedMail;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use Illuminate\Support\Facades\Mail;
@@ -49,6 +48,7 @@ class ProjectController extends Controller
             'progress' => $request->progress,
             'is_team' => (bool)$request->team,
             'team_name' => $request->team_name,
+            'is_private' => (bool)$request->private,
         ]);
         session()->flash('success', 'Project created successfully.');
         return redirect(route('projects.mine'));
@@ -69,6 +69,7 @@ class ProjectController extends Controller
             'progress' => $request->progress,
             'is_team' => (bool)$request->team,
             'team_name' => $request->team_name,
+            'is_private' => (bool)$request->private,
         ];
         if ($file = $request->file('cover')) {
             $cover = Storage::disk('public')->putFile('upload', $file);

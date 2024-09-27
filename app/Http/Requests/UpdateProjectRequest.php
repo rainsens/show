@@ -22,6 +22,7 @@ class UpdateProjectRequest extends FormRequest
             'progress' => ['required', 'numeric', 'between:0,100'],
             'team' => ['boolean'],
             'team_name' => ['required_if:team,1', 'string', 'between:2,200'],
+            'private' => ['boolean'],
         ];
     }
 

@@ -23,6 +23,7 @@ class ProjectFactory extends Factory
             'progress' => rand(0, 100),
             'is_team' => 1,
             'team_name' => fake()->name(),
+            'is_private' => rand(0, 1),
         ];
     }
 }

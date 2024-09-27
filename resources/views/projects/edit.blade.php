@@ -8,7 +8,7 @@
                         <path d="M5.25 5.25a3 3 0 0 0-3 3v10.5a3 3 0 0 0 3 3h10.5a3 3 0 0 0 3-3V13.5a.75.75 0 0 0-1.5 0v5.25a1.5 1.5 0 0 1-1.5 1.5H5.25a1.5 1.5 0 0 1-1.5-1.5V8.25a1.5 1.5 0 0 1 1.5-1.5h5.25a.75.75 0 0 0 0-1.5H5.25Z" />
                     </svg>
                     <div class="mx-2">Edit Project:</div>
-                    <h5 class="text-xl font-bold dark:text-white">
+                    <h5 class="text-xl font-bold">
                         {{ $project->title }}
                     </h5>
                 </div>
@@ -95,6 +95,17 @@
                         <p class="mt-2 text-sm text-red-600 dark:text-red-500">{{ $message }}</p>
                         @enderror
                     </div>
+
+                    <div class="mb-6">
+                        <label class="inline-flex items-center cursor-pointer">
+                            <input type="checkbox" name="private" value="0" class="sr-only peer" {{ $project->is_private ? "checked" : "" }}>
+                            <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-purple-300 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-purple-600"></div>
+                            <span class="ms-3 text-sm font-medium text-gray-900">Is Private Project</span>
+                        </label>
+                    </div>
+                    @error('private')
+                    <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                    @enderror
                     <button type="submit" class="text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Submit</button>
                 </form>
             </div>

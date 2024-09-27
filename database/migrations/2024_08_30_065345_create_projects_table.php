@@ -19,6 +19,7 @@ return new class extends Migration
             $table->integer('progress')->default(0);
             $table->boolean('is_team')->default(true);
             $table->string('team_name')->nullable();
+            $table->boolean('is_private')->default(false);
             $table->timestamps();
             $table->index(['created_at']);
         });
