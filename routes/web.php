@@ -123,6 +123,8 @@ Route::middleware(['auth'])->group(function () {
     Route::post('shares/{project}', [ShareController::class, 'send'])->name('shares.send');
 
     Route::get('notices/{project}/create', [NoticeController::class, 'create'])->name('notices.create');
+    Route::post('notices/{project}/store', [NoticeController::class, 'store'])->name('notices.store');
+    Route::get('notices/{project}/email', [NoticeController::class, 'email'])->name('notices.email');
     Route::post('notices/{project}/send', [NoticeController::class, 'send'])->name('notices.send');
 });
 Route::get('projects', [ProjectController::class, 'index'])->name('projects.index');

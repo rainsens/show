@@ -9,13 +9,13 @@
                     Go Back
                 </a>
                 <h1 class="text-xl font-bold leading-none text-gray-900 text-center">
-                    Email notification to one of the project members
+                    Email notification to all team members
                 </h1>
                 <hr class="my-5">
                 <h5 class="mb-10 text-xl font-bold leading-none text-gray-900">
                     Project: <span class="text-purple-700">{{ $project->title }}</span>.
                 </h5>
-                <form method="POST" action="{{ route('notices.send', $project) }}">
+                <form method="POST" action="{{ route('notices.store', $project) }}">
                     @csrf
                     <div class="mb-6">
                         <label for="subject" class="block mb-2 text-sm font-medium text-gray-900">

@@ -9,7 +9,7 @@
     You can check it by following link:
 </p>
 <p>
-    https://www.uq.edu.au
+    {{ $project->title }}
 </p>
 <p>
     Regards
