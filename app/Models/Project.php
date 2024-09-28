@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Laravel\Scout\Searchable;
 
 /**
  *
@@ -78,6 +79,19 @@ class Project extends Model
         'permits',
         'comments',
     ];
+
+    public function toSearchableArray()
+    {
+        return [
+            'id' => $this->id,
+            'initiator' => $this->initiator,
+            'cover' => $this->cover,
+            'title' => $this->title,
+            'brief' => $this->brief,
+            'detail' => $this->detail,
+            'team_name' => $this->team_name,
+        ];
+    }
 
     public function isMember(User $user)
     {
