@@ -17,6 +17,17 @@ class ProjectController extends Controller
         $projects = Project::orderByDesc('created_at')->paginate();
         return view('projects.index', compact('projects'));
     }
+    public function search()
+    {
+        request()->validate([
+            'keywords' => 'required|string|max:128',
+        ]);
+        $projects = Project::query()->whereAny(
+            ['title', 'brief', 'detail'], 'like', '%' . request('keywords') . '%',
+        )->orderByDesc('created_at')->paginate();
+        return view('projects.index', compact('projects'));
+    }
+
     public function mine()
     {
         $user = auth()->user();

@@ -128,6 +128,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('notices/{project}/send', [NoticeController::class, 'send'])->name('notices.send');
 });
 Route::get('projects', [ProjectController::class, 'index'])->name('projects.index');
+Route::get('projects/search', [ProjectController::class, 'search'])->name('projects.search');
 Route::get('projects/{project}', [ProjectController::class, 'show'])->name('projects.show');
 
 Route::get('questionnaires', [QuestionnaireController::class, 'index'])->name('questionnaires.index');
