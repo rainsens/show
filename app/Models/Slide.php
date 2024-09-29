@@ -5,9 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Support\Str;
 
 /**
- * 
+ *
  *
  * @property int $id
  * @property int $project_id
@@ -33,6 +34,15 @@ class Slide extends Model
     use HasFactory;
 
     protected $guarded = ['id'];
+
+    public function getSlideAttribute()
+    {
+        if (Str::startsWith($this->attributes['slide'], ['http://', 'https://'])) {
+            return $this->attributes['slide'];
+        } else {
+            return asset($this->attributes['slide']);
+        }
+    }
 
     public function project(): BelongsTo
     {

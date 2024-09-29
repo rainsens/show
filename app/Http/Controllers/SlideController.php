@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\SlideSent;
 use App\Http\Requests\StoreSlideRequest;
 use App\Http\Requests\UpdateSlideRequest;
 use App\Models\Project;
@@ -15,6 +16,19 @@ class SlideController extends Controller
     {
         $slides = $project->slides()->orderByDesc('id')->paginate();
         return view('slides.index', compact('slides', 'project'));
+    }
+
+    public function push(Project $project, $s)
+    {
+        $slides = $project->slides->toArray();
+        event(new SlideSent($s, $slides));
+        session()->flash('success', 'The project slides have been sent.');
+        return redirect()->back();
+    }
+
+    public function broadcast(string $channel)
+    {
+        return view('slides.broadcast', ['channel' => $channel]);
     }
 
     public function create(Project $project)
@@ -32,11 +46,6 @@ class SlideController extends Controller
         ]);
         session()->flash('success', 'The project slide created successfully.');
         return redirect(route('projects.slides.index', $project));
-    }
-
-    public function show(Slide $slide)
-    {
-        //
     }
 
     public function edit(Slide $slide)

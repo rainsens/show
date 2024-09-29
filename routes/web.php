@@ -130,5 +130,7 @@ Route::middleware(['auth'])->group(function () {
 Route::get('projects', [ProjectController::class, 'index'])->name('projects.index');
 Route::get('projects/search', [ProjectController::class, 'search'])->name('projects.search');
 Route::get('projects/{project}', [ProjectController::class, 'show'])->name('projects.show');
+Route::get('projects/{project}/slides/push/{screen}', [SlideController::class, 'push'])->name('projects.slides.push');
+Route::get('projects/slides/broadcast/{channel}', [SlideController::class, 'broadcast'])->name('projects.slides.broadcast');
 
 Route::get('questionnaires', [QuestionnaireController::class, 'index'])->name('questionnaires.index');

@@ -26,7 +26,7 @@ class ProjectSeeder extends Seeder
 
         Project::all()->each(function ($project) {
             $project->members()->saveMany(Member::factory()->count(5)->make());
-            $project->slides()->saveMany(Slide::factory()->count(5)->make());
+            $project->slides()->saveMany(Slide::factory()->count(3)->make());
             $project->images()->saveMany(Image::factory()->count(3)->make());
             $project->events()->saveMany(Event::factory()->count(10)->make());
             $project->links()->saveMany(Link::factory()->count(5)->make());

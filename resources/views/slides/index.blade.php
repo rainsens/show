@@ -14,7 +14,93 @@
             </div>
             <div class="col-span-4">
                 <div class="w-full p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8">
-                    <div class="flex items-center justify-between mb-4">
+
+                    <div class="flex justify-between">
+                        <div id="default-carousel" class="relative w-full" data-carousel="slide">
+                            <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
+                                @foreach($slides as $slide)
+                                    <div class="hidden duration-700 ease-in-out" data-carousel-item style="z-index: 5">
+                                        <img src="{{ $slide->slide }}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                                    </div>
+                                @endforeach
+                            </div>
+                            <div class="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse">
+                                @for($i = 0; $i < $slides->count(); $i++)
+                                    <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide {{ $i }}" data-carousel-slide-to="{{ $i }}"></button>
+                                @endfor
+                            </div>
+                            <button type="button" class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
+                            <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                                <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
+                                </svg>
+                                <span class="sr-only">Previous</span>
+                            </span>
+                            </button>
+                            <button type="button" class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
+                            <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                                <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
+                                </svg>
+                                <span class="sr-only">Next</span>
+                            </span>
+                            </button>
+                        </div>
+                        <div class="w-72 flex flex-col ms-5">
+                            <div class="flex">
+                                <a href="{{ route('projects.slides.push', [$project, 'screen' => '1']) }}" type="button" class="text-purple-700 hover:text-white border border-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
+                                    Display on Screen 1
+                                </a>
+                                <a href="{{ route('projects.slides.broadcast', 'screen_1') }}" target="_blank">
+                                    <svg class="w-6 h-6 text-purple-500 hover:text-purple-700" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                        <path fill-rule="evenodd" d="M5 3a2 2 0 0 0-2 2v5h18V5a2 2 0 0 0-2-2H5ZM3 14v-2h18v2a2 2 0 0 1-2 2h-6v3h2a1 1 0 1 1 0 2H9a1 1 0 1 1 0-2h2v-3H5a2 2 0 0 1-2-2Z" clip-rule="evenodd"/>
+                                    </svg>
+                                </a>
+                            </div>
+                            <div class="flex">
+                                <a href="{{ route('projects.slides.push', [$project, 'screen' => '2']) }}" type="button" class="text-purple-700 hover:text-white border border-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
+                                    Display on Screen 2
+                                </a>
+                                <a href="{{ route('projects.slides.broadcast', 'screen_2') }}" target="_blank">
+                                    <svg class="w-6 h-6 text-purple-500 hover:text-purple-700" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                        <path fill-rule="evenodd" d="M5 3a2 2 0 0 0-2 2v5h18V5a2 2 0 0 0-2-2H5ZM3 14v-2h18v2a2 2 0 0 1-2 2h-6v3h2a1 1 0 1 1 0 2H9a1 1 0 1 1 0-2h2v-3H5a2 2 0 0 1-2-2Z" clip-rule="evenodd"/>
+                                    </svg>
+                                </a>
+                            </div>
+                            <div class="flex">
+                                <a href="{{ route('projects.slides.push', [$project, 'screen' => '3']) }}" type="button" class="text-purple-700 hover:text-white border border-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
+                                    Display on Screen 3
+                                </a>
+                                <a href="{{ route('projects.slides.broadcast', 'screen_3') }}" target="_blank">
+                                    <svg class="w-6 h-6 text-purple-500 hover:text-purple-700" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                        <path fill-rule="evenodd" d="M5 3a2 2 0 0 0-2 2v5h18V5a2 2 0 0 0-2-2H5ZM3 14v-2h18v2a2 2 0 0 1-2 2h-6v3h2a1 1 0 1 1 0 2H9a1 1 0 1 1 0-2h2v-3H5a2 2 0 0 1-2-2Z" clip-rule="evenodd"/>
+                                    </svg>
+                                </a>
+                            </div>
+                            <div class="flex">
+                                <a href="{{ route('projects.slides.push', [$project, 'screen' => '4']) }}" type="button" class="text-purple-700 hover:text-white border border-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
+                                    Display on Screen 4
+                                </a>
+                                <a href="{{ route('projects.slides.broadcast', 'screen_4') }}" target="_blank">
+                                    <svg class="w-6 h-6 text-purple-500 hover:text-purple-700" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                        <path fill-rule="evenodd" d="M5 3a2 2 0 0 0-2 2v5h18V5a2 2 0 0 0-2-2H5ZM3 14v-2h18v2a2 2 0 0 1-2 2h-6v3h2a1 1 0 1 1 0 2H9a1 1 0 1 1 0-2h2v-3H5a2 2 0 0 1-2-2Z" clip-rule="evenodd"/>
+                                    </svg>
+                                </a>
+                            </div>
+                            <div class="flex">
+                                <a href="{{ route('projects.slides.push', [$project, 'screen' => '5']) }}" type="button" class="text-purple-700 hover:text-white border border-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
+                                    Display on Screen 5
+                                </a>
+                                <a href="{{ route('projects.slides.broadcast', 'screen_5') }}" target="_blank">
+                                    <svg class="w-6 h-6 text-purple-500 hover:text-purple-700" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                        <path fill-rule="evenodd" d="M5 3a2 2 0 0 0-2 2v5h18V5a2 2 0 0 0-2-2H5ZM3 14v-2h18v2a2 2 0 0 1-2 2h-6v3h2a1 1 0 1 1 0 2H9a1 1 0 1 1 0-2h2v-3H5a2 2 0 0 1-2-2Z" clip-rule="evenodd"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-between mt-10 mb-4">
                         <h5 class="text-xl font-bold leading-none text-gray-900 dark:text-white">
                             Slides for Project: <span class="text-purple-700">{{ $project->title }}</span>
                         </h5>
