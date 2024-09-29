@@ -20,7 +20,7 @@
                         </a>
                     </li>
                     <li>
-                        <a id="broadcastDropdownButton" data-dropdown-toggle="broadcastDropdown" data-dropdown-trigger="hover" href="{{ route('projects.index') }}" class="flex items-center block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent @if(Str::contains(Route::currentRouteName(), 'project')) md:text-purple-700 @endif md:hover:text-purple-700 md:p-0">
+                        <a id="broadcastDropdownButton" data-dropdown-toggle="broadcastDropdown" data-dropdown-trigger="hover" class="flex items-center cursor-pointer py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent @if(Str::contains(Route::currentRouteName(), 'project')) md:text-purple-700 @endif md:hover:text-purple-700 md:p-0">
                             Broadcast
                             <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
@@ -35,13 +35,13 @@
                                     <a href="{{ route('projects.slides.broadcast', 'screen_2') }}" target="_blank" class="block px-4 py-2 hover:bg-gray-100">Display on Screen 2</a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('projects.slides.broadcast', 'screen_2') }}" target="_blank" class="block px-4 py-2 hover:bg-gray-100">Display on Screen 3</a>
+                                    <a href="{{ route('projects.slides.broadcast', 'screen_3') }}" target="_blank" class="block px-4 py-2 hover:bg-gray-100">Display on Screen 3</a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('projects.slides.broadcast', 'screen_2') }}" target="_blank" class="block px-4 py-2 hover:bg-gray-100">Display on Screen 4</a>
+                                    <a href="{{ route('projects.slides.broadcast', 'screen_4') }}" target="_blank" class="block px-4 py-2 hover:bg-gray-100">Display on Screen 4</a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('projects.slides.broadcast', 'screen_2') }}" target="_blank" class="block px-4 py-2 hover:bg-gray-100">Display on Screen 5</a>
+                                    <a href="{{ route('projects.slides.broadcast', 'screen_5') }}" target="_blank" class="block px-4 py-2 hover:bg-gray-100">Display on Screen 5</a>
                                 </li>
                             </ul>
                         </div>
