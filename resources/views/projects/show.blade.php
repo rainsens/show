@@ -26,7 +26,7 @@
     @else
         <div class="container max-w-screen-xl mx-auto p-10 bg-white rounded-lg">
             <div class="grid grid-cols-5">
-                <div class="me-8">
+                <div class="me-8 hidden lg:block">
                     <div class="flex">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
                             <path fill-rule="evenodd"
@@ -70,7 +70,7 @@
                         @include('projects._operation')
                     </div>
                 </div>
-                <div class="col-span-3">
+                <div class="col-span-5 lg:col-span-3">
                     <div>
                         <h1 class="text-4xl font-bold leading-none tracking-tight text-gray-900 md:text-2xl lg:text-4xl">
                             @if($project->is_private)
@@ -141,7 +141,7 @@
                     </div>
 
                 </div>
-                <div class="ms-8">
+                <div class="ms-8 hidden lg:block">
                     @if($project->events->isNotEmpty())
                         <ol class="relative border-s border-gray-200">
                             @foreach($project->events as $event)

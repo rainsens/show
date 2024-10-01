@@ -7,6 +7,9 @@ export default {
       "./node_modules/flowbite/**/*.js"
   ],
   theme: {
+    colors: {
+        "twitter-blue": "#1DA1F2",
+    },
     extend: {
         colors: {
             'primary': '#51247A',
