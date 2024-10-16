@@ -88,6 +88,11 @@
                     </div>
 
                     @if($project->slides->isNotEmpty())
+                        <div class="w-full flex flex-row-reverse">
+                            <a href="{{ route('projects.slides.index', $project) }}" class="w-full text-right">
+                                <span class="py-1 px-2 bg-gray-100 rounded-md">Display</span>
+                            </a>
+                        </div>
                         @include('projects._slides')
                     @else
                         <img src="{{ asset('img.png') }}" alt="">

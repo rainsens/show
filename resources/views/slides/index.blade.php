@@ -49,7 +49,7 @@
                         <div class="w-72 flex flex-col ms-5">
                             <div class="flex">
                                 <a href="{{ route('projects.slides.push', [$project, 'screen' => '1']) }}" type="button" class="text-purple-700 hover:text-white border border-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
-                                    Display on Screen 1
+                                    Display on Channel 1
                                 </a>
                                 <a href="{{ route('projects.slides.broadcast', 'screen_1') }}" target="_blank">
                                     <svg class="w-6 h-6 text-purple-500 hover:text-purple-700" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
@@ -59,7 +59,7 @@
                             </div>
                             <div class="flex">
                                 <a href="{{ route('projects.slides.push', [$project, 'screen' => '2']) }}" type="button" class="text-purple-700 hover:text-white border border-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
-                                    Display on Screen 2
+                                    Display on Channel 2
                                 </a>
                                 <a href="{{ route('projects.slides.broadcast', 'screen_2') }}" target="_blank">
                                     <svg class="w-6 h-6 text-purple-500 hover:text-purple-700" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
@@ -69,7 +69,7 @@
                             </div>
                             <div class="flex">
                                 <a href="{{ route('projects.slides.push', [$project, 'screen' => '3']) }}" type="button" class="text-purple-700 hover:text-white border border-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
-                                    Display on Screen 3
+                                    Display on Channel 3
                                 </a>
                                 <a href="{{ route('projects.slides.broadcast', 'screen_3') }}" target="_blank">
                                     <svg class="w-6 h-6 text-purple-500 hover:text-purple-700" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
@@ -79,7 +79,7 @@
                             </div>
                             <div class="flex">
                                 <a href="{{ route('projects.slides.push', [$project, 'screen' => '4']) }}" type="button" class="text-purple-700 hover:text-white border border-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
-                                    Display on Screen 4
+                                    Display on Channel 4
                                 </a>
                                 <a href="{{ route('projects.slides.broadcast', 'screen_4') }}" target="_blank">
                                     <svg class="w-6 h-6 text-purple-500 hover:text-purple-700" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
@@ -89,7 +89,7 @@
                             </div>
                             <div class="flex">
                                 <a href="{{ route('projects.slides.push', [$project, 'screen' => '5']) }}" type="button" class="text-purple-700 hover:text-white border border-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
-                                    Display on Screen 5
+                                    Display on Channel 5
                                 </a>
                                 <a href="{{ route('projects.slides.broadcast', 'screen_5') }}" target="_blank">
                                     <svg class="w-6 h-6 text-purple-500 hover:text-purple-700" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
