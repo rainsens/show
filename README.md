@@ -5,9 +5,11 @@ The projects as an initial and primary way of being displayed is via a website.
 
 ### Main Technology Stack
 * PHP: Backend Development Language
-* TailwindCSS: Frontend Development Language(still in progress...)
+* TailwindCSS: Frontend
 * Mysql: Data Persistence
 * Redis: Data Caching and Speeding
+* Websocket: Display projects across multiple screens
+* Milegun: Email server
 * ......
 
 ### Main Features
@@ -15,13 +17,11 @@ The projects as an initial and primary way of being displayed is via a website.
 * Enhanced password design for data security.
 * Member introduction from a related profile.
 * Project display with multiple aspects.
+* Pushing projects to multiple screens.
 * A comment function following each project.
 * Slides for project display across multiple screens.
-* Setting team members' permission for a specific project.
 * Support uploading various types of files, e.g. image, video, PDF, word and excel.
 * Generating QR code for a specified project or a questionnaire.
-* API support for multiple pieces of equipment.
-* Faster access experience with data caching.
 * ......
 
 ### Extra Addition
